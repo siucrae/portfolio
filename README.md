@@ -9,7 +9,7 @@ This repository contains my personal portfolio website, built with HTML, CSS, an
 - 📬 **Contact Info** – Links to social media and ways to reach me  
 
 ### Live Demo  
-🚀 [Check it out here](#) 
+🚀 [Check it out here](https://siucrae.github.io/portfolio/) 
 
 ### Technologies Used  
 - HTML, CSS, JavaScript
