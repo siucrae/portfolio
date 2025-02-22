@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio (WIP) - Kemper Mullaney</title>
+    <title>Portfolio - Kemper Mullaney</title>
+    <!-- link to tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- link to gsap animation library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
         body {
+            /* background gradient and text color */
             background: linear-gradient(135deg, #1a1a2e, #16213e);
             color: white;
             font-family: 'Arial', sans-serif;
@@ -15,7 +18,9 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
+
         .circle {
+            /* styling for the circles */
             position: absolute;
             width: 200px;
             height: 200px;
@@ -28,9 +33,57 @@
             0% { transform: translateY(0) translateX(0); }
             100% { transform: translateY(-50px) translateX(50px); }
         }
+
+        .star {
+            /* styling for the stars */
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            /* base animation for stars */
+            animation: moveStars 30s linear infinite, twinkle 8s infinite alternate;
+        }
+
+        /* adjust speed for different stars */
+        .star:nth-child(1) {
+            animation-duration: 30s;
+        }
+
+        .star:nth-child(2) {
+            animation-duration: 35s;
+        }
+
+        .star:nth-child(3) {
+            animation-duration: 25s;
+        }
+
+        .star:nth-child(4) {
+            animation-duration: 40s;
+        }
+
+        .star:nth-child(5) {
+            animation-duration: 45s;
+        }
+
+        /* twinkle animation */
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        /* moving stars animation */
+        @keyframes moveStars {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+
     </style>
 </head>
 <body class="flex flex-col items-center text-center">
+    <!-- circle elements for background effect -->
     <div class="circle" style="top: 5%; left: 10%;"></div>
     <div class="circle" style="top: 20%; left: 30%;"></div>
     <div class="circle" style="top: 35%; left: 50%;"></div>
@@ -41,62 +94,121 @@
     <div class="circle" style="top: 40%; left: 80%;"></div>
     <div class="circle" style="top: 25%; left: 65%;"></div>
 
+    <!-- stars background -->
+    <div class="stars-container">
+        <div class="star" style="top: 10%; left: 20%;"></div>
+        <div class="star" style="top: 30%; left: 50%;"></div>
+        <div class="star" style="top: 50%; left: 80%;"></div>
+        <div class="star" style="top: 70%; left: 10%;"></div>
+        <div class="star" style="top: 90%; left: 60%;"></div>
+    </div>
 
-
-    <!-- landing page -->
+    <!-- landing page section -->
     <section class="w-full h-screen flex flex-col justify-center items-center relative">
         <h1 class="text-6xl font-bold animate-pulse">Hi, I'm Kemper!</h1>
         <p class="text-lg mt-4 text-gray-300">Developer | Creator</p>
         <a href="#about" class="mt-10 px-6 py-3 bg-pink-500 hover:bg-pink-700 transition rounded-full text-white font-semibold text-lg">Learn More</a>
     </section>
 
-    <!-- about me -->
-    <section id="about" class="w-4/5 my-10 bg-gray-900 bg-opacity-50 p-8 rounded-xl shadow-lg">
-        <h2 class="text-3xl font-semibold">About Me</h2>
-        <p class="mt-4 text-gray-300">I'm an aerospace engineering student with a passion for physics, coding, and content creation---be it writing or video editing.</p>
+    <!-- about me section -->
+        <section id="about" class="bg-gray-900 text-white p-8 rounded-xl shadow-lg border-2 border-blue-500 max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">About Me</h2>
+            <p class="text-lg leading-relaxed">
+                I’m Kemper! An aerospace engineering student—which is a fancy way of saying I like making things go really fast and, ideally, not explode. <span class="italic">I joke.</span> When I’m not buried under equations designed to test my sanity, I’m diving into projects in coding, creative writing, and video content creation. I combine technical expertise in areas like systems, programming, and physics with a creative mindset. With skills in web development, video editing, machine learning, and problem-solving, I work to merge logic with imagination, always eager to learn and create something innovative and impactful.
+            </p>
+            <p class="mt-4 text-xs leading-relaxed text-gray-400">
+                You see, I like learning <span class="underline">everything</span>. One moment, I’m studying quantum mechanics and the next I’m tweaking code and before I know it I’m deep in a video project wondering why I thought DaVinci Resolve was my friend.
+            </p>
+            <p class="mt-4 text-xs leading-relaxed text-gray-400">
+                <span class="font-semibold text-pink-400">Coding</span> is my way of playing god—except instead of creating life, I create infinitely spawning error messages. There’s something poetic about writing a hundred lines of logic, pressing run, and immediately being greeted by a cryptic error message that suggests I should reconsider my life choices, but that’s the fun of it! Every bug fixed is a small victory, and every project finished is another reason to celebrate.
+            </p>
+            <p class="mt-4 text-xs leading-relaxed text-gray-400">
+                <span class="font-semibold text-blue-400">Writing</span>, however, is where raw thought flourishes. Through it, I am able to dissect concepts, unraveling complexity into digestible meaning. Fiction, technical analysis, philosophical musings—each piece is a reflection of my fascination with the universe; a testament to the interplay between logic and imagination. Ever wonder why time slows near a black hole? Or why you age slightly faster on a plane than on the ground? No? That’s fine—I’ll still happily rant about relativity to anyone willing to listen. To me, physics isn’t just numbers and formulas; it’s the poetry of the universe, a blueprint holding the secrets to existence—an artistry of understanding that fuels both my writing and scientific curiosity.
+            </p>
+            <p class="mt-4 text-xs leading-relaxed text-gray-400">
+                <span class="font-semibold text-purple-400">Video editing</span> too I can bring thoughts to life in a visual and dynamic way. It's not just about cutting and pasting clips—it's about understanding rhythm, emotion, and timing to evoke a response from the viewer.
+            </p>
+            <p class="mt-4 text-xs leading-relaxed text-gray-400">
+                So, what do you get when you mix aerospace engineering, coding, video editing, physics, and a passion for storytelling?
+            </p>
+            <p class="text-xs leading-relaxed text-gray-400">
+                You get me—an over-caffeinated, sleep-deprived, mildly existential nerd who just wants to understand the universe and create cool things along the way.
+            </p>
+            <p class="mt-4 text-xs leading-relaxed text-gray-400">
+                If time is relative, I’d like to kindly ask it to slow down when I have a deadline. Thanks in advance.
+            </p>
+        </section>
+
+
+    <!-- projects showcase section -->
+    <section class="w-4/5 my-10">
+        <h2 class="text-3xl font-semibold">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            <a href="#coding-projects" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-pink-500">
+                <h3 class="text-xl font-medium">Coding Projects</h3>
+                <p class="text-gray-400">Explore my coding work and projects.</p>
+            </a>
+            <a href="#writing-projects" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-blue-500">
+                <h3 class="text-xl font-medium">Writing Projects</h3>
+                <p class="text-gray-400">Read my writings, articles, and creative works</p>
+            </a>
+            <a href="#video-editing-projects" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-purple-500">
+                <h3 class="text-xl font-medium">Video Editing Projects</h3>
+                <p class="text-gray-400">View my video editing portfolio and samples</p>
+            </a>
+        </div>
     </section>
 
-<!-- projects showcase -->
-<section class="w-4/5 my-10">
-    <h2 class="text-3xl font-semibold">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        <a href="#coding-projects" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-pink-500">
-            <h3 class="text-xl font-medium">Coding Projects</h3>
-            <p class="text-gray-400">Explore my coding work and projects.</p>
-        </a>
-        <a href="#writing-projects" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-blue-500">
-            <h3 class="text-xl font-medium">Writing Projects</h3>
-            <p class="text-gray-400">Read my writings, articles, and creative works.</p>
-        </a>
-        <a href="#video-editing-projects" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-purple-500">
-            <h3 class="text-xl font-medium">Video Editing Projects</h3>
-            <p class="text-gray-400">View my video editing portfolio and samples.</p>
-        </a>
-    </div>
-</section>
+    <!-- coding projects section -->
+    <section id="coding-projects" class="w-4/5 my-10 bg-gray-900 bg-opacity-50 p-8 rounded-xl shadow-lg">
+        <h2 class="text-3xl font-semibold">Coding Projects</h2>
+        <p class="mt-4 text-gray-300">This section showcases my coding projects</p>
+        <!-- content for coding projects -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+            <a href="#school-work" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-pink-500">
+                <h3 class="text-xl font-medium">School Work</h3>
+                <p class="text-gray-400">See what I did in college!</p>
+            </a>
+            <a href="#personal-projects" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-pink-500">
+                <h3 class="text-xl font-medium">Personal Projects</h3>
+                <p class="text-gray-400">View my personal software!</p>
+            </a>
+        </div>
+    </section>
 
-<!-- coding projects section -->
-<section id="coding-projects" class="w-4/5 my-10 bg-gray-900 bg-opacity-50 p-8 rounded-xl shadow-lg">
-    <h2 class="text-3xl font-semibold">Coding Projects</h2>
-    <p class="mt-4 text-gray-300">This section showcases my coding projects.</p>
-    <!-- content for coding projects here -->
-</section>
+    <!-- writing projects section -->
+    <section id="writing-projects" class="w-4/5 my-10 bg-gray-900 bg-opacity-50 p-8 rounded-xl shadow-lg">
+        <h2 class="text-3xl font-semibold">Writing Projects</h2>
+        <p class="mt-4 text-gray-300">Here are my writing projects and creative works</p>
+        <!-- content for writing projects -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+            <a href="#creative-writing" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-blue-500">
+                <h3 class="text-xl font-medium">Creative Writing</h3>
+                <p class="text-gray-400">Read my creative works and stories!</p>
+            </a>
+            <a href="#research-writing" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-blue-500">
+                <h3 class="text-xl font-medium">Research Writing</h3>
+                <p class="text-gray-400">Explore my non-fiction and research articles!</p>
+            </a>
+        </div>
+    </section>
 
-<!-- writing projects section -->
-<section id="writing-projects" class="w-4/5 my-10 bg-gray-900 bg-opacity-50 p-8 rounded-xl shadow-lg">
-    <h2 class="text-3xl font-semibold">Writing Projects</h2>
-    <p class="mt-4 text-gray-300">Here are my writing projects and creative works.</p>
-    <!-- content for writing projects here -->
-</section>
 
-<!-- video editing projects section -->
-<section id="video-editing-projects" class="w-4/5 my-10 bg-gray-900 bg-opacity-50 p-8 rounded-xl shadow-lg">
-    <h2 class="text-3xl font-semibold">Video Editing Projects</h2>
-    <p class="mt-4 text-gray-300">These are some of my video editing projects and reels.</p>
-    <!-- content for video editing projects here -->
-</section>
+    <!-- video editing projects section -->
+    <section id="video-editing-projects" class="w-4/5 my-10 bg-gray-900 bg-opacity-50 p-8 rounded-xl shadow-lg">
+        <h2 class="text-3xl font-semibold">Video Editing Projects</h2>
+        <p class="mt-4 text-gray-300">These are some of my video editing projects and reels.</p>
+        <!-- content for video editing projects -->
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-10 mt-10">
+            <a href="#youtube" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform border-2 border-blue-500">
+                <h3 class="text-xl font-medium">YouTube</h3>
+                <p class="text-gray-400">See my editing prowess!</p>
+            </a>
+        </div>
+    </section>
+    </section>
 
-    <!-- contact -->
+    <!-- contact section -->
     <section class="w-4/5 my-10 bg-gray-900 bg-opacity-50 p-8 rounded-xl shadow-lg">
         <h2 class="text-3xl font-semibold">Contact</h2>
         <p class="mt-4 text-gray-300">Reach out to me on my socials:</p>
@@ -106,6 +218,7 @@
         </div>
     </section>
 
+    <!-- gsap animation for h1 and p -->
     <script>
         gsap.from("h1", { opacity: 0, y: -50, duration: 1 });
         gsap.from("p", { opacity: 0, y: 20, duration: 1, delay: 0.5 });
